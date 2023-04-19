@@ -3,6 +3,7 @@ package com.example.chatgpt.practice_exercises;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Random;
 import java.util.Scanner;
 
 @SpringBootApplication
@@ -16,12 +17,13 @@ public class PracticeExercisesApplication {
         SpringApplication.run(PracticeExercisesApplication.class, args);
 
 
-        while (keepPlaying == true){
+        while (keepPlaying == true) {
             System.out.println("Select a program from the following list: ");
             System.out.println("1. Age in ten years");
             System.out.println("2. Palindrome Check");
             System.out.println("3. Fibonacci");
             System.out.println("4. Sum, Avg, Min, Max");
+            System.out.println("5. Dice Game");
             System.out.println("9. Exit");
             userProgramNumber = scnr.nextInt();
             switch (userProgramNumber) {
@@ -37,6 +39,9 @@ public class PracticeExercisesApplication {
                 case 4:
                     sumAvgMinMax();
                     break;
+                case 5:
+                    diceGame();
+                    break;
                 case 9:
                     keepPlaying = false;
                     break;
@@ -46,6 +51,34 @@ public class PracticeExercisesApplication {
         }
         System.out.println("Thank you for playing!");
     }
+
+    private static void diceGame() {
+        System.out.println("Here is the basis of the game. There are two players (a and b). Each will roll a dice and the largest number wins. Ties will re-roll until there is a winner");
+        System.out.println("Rolling now!");
+
+        Random random = new Random();
+        int playerARoll = random.nextInt(6) + 1;
+        int playerBRoll = random.nextInt(6) + 1;
+        int numOfRolls = 1;
+        System.out.println(playerARoll + " " + playerBRoll);
+
+
+
+        if (playerARoll > playerBRoll) {
+            System.out.println("Player A Wins!");
+        }
+        if (playerBRoll > playerARoll) {
+            System.out.println("Player B Wins!");
+        }
+        if (playerARoll == playerBRoll) {
+            playerARoll = random.nextInt(6) + 1;
+            playerBRoll = random.nextInt(6) + 1;
+            System.out.println(playerARoll + " " + playerBRoll);
+            numOfRolls++;
+        }
+        System.out.println("Number of Rolls: " + numOfRolls);
+    }
+
 
     private static void sumAvgMinMax() {
         System.out.println("Enter a list of integers and I will return the sum, average, min, and max numbers");
