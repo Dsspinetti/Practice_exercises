@@ -15,7 +15,7 @@ public class PracticeExercisesApplication {
         SpringApplication.run(PracticeExercisesApplication.class, args);
 
 
-        while (keepPlaying == true) {
+        while (keepPlaying) {
             System.out.println("Select a program from the following list: ");
             System.out.println("1. Age in ten years");
             System.out.println("2. Palindrome Check");
@@ -24,6 +24,7 @@ public class PracticeExercisesApplication {
             System.out.println("5. Dice Game");
             System.out.println("6. Alphabetical list");
             System.out.println("7. Factorial");
+            System.out.println("8. Calculator");
             System.out.println("9. Exit");
             userProgramNumber = scnr.nextInt();
             switch (userProgramNumber) {
@@ -48,6 +49,9 @@ public class PracticeExercisesApplication {
                 case 7:
                     factorial();
                     break;
+                case 8:
+                    calculator();
+                    break;
                 case 9:
                     keepPlaying = false;
                     break;
@@ -56,6 +60,27 @@ public class PracticeExercisesApplication {
 
         }
         System.out.println("Thank you for playing!");
+    }
+
+    private static void calculator() {
+        System.out.println("This is a simple calculator application input two numbers separated by a +,-,*,/ and I will calculate the result");
+        Scanner scnr = new Scanner(System.in);
+        int num1 = scnr.nextInt();
+        String operand = scnr.next();
+        int num2 = scnr.nextInt();
+        System.out.println(num1 + " " + num2 + " " + operand);
+        if (operand.equals("+")) {
+            System.out.println("Answer is: " + (num1 + num2));
+        }
+        if (operand.equals("-")) {
+            System.out.println("Answer is: " + (num1 - num2));
+        }
+        if (operand.equals("*")) {
+            System.out.println("Answer is: " + (num1 * num2));
+        }
+        if (operand.equals("/")) {
+            System.out.println("Answer is: " + (num1 / num2));
+        }
     }
 
     private static void factorial() {
