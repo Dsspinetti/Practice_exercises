@@ -1,7 +1,4 @@
 package com.example.chatgpt.practice_exercises;
-
-import org.springframework.boot.SpringApplication;
-
 import java.util.*;
 
 public class PracticeExercisesApplication {
@@ -10,9 +7,6 @@ public class PracticeExercisesApplication {
         int userProgramNumber;
         boolean keepPlaying = true;
         Scanner scnr = new Scanner(System.in);
-
-        SpringApplication.run(PracticeExercisesApplication.class, args);
-
 
         while (keepPlaying) {
             System.out.println("Select a program from the following list: ");
@@ -37,8 +31,6 @@ public class PracticeExercisesApplication {
                 case 8 -> calculator();
                 case 9 -> keepPlaying = false;
             }
-
-
         }
         System.out.println("Thank you for playing!");
     }
@@ -94,8 +86,6 @@ public class PracticeExercisesApplication {
         }
         Collections.sort(words);
         System.out.println(words);
-
-
     }
 
     private static void diceGame() {
@@ -107,8 +97,6 @@ public class PracticeExercisesApplication {
         int playerBRoll = random.nextInt(6) + 1;
         int numOfRolls = 1;
         System.out.println(playerARoll + " " + playerBRoll);
-
-
 
         if (playerARoll > playerBRoll) {
             System.out.println("Player A Wins!");
@@ -124,7 +112,6 @@ public class PracticeExercisesApplication {
         }
         System.out.println("Number of Rolls: " + numOfRolls);
     }
-
 
     private static void sumAvgMinMax() {
         System.out.println("Enter a list of integers and I will return the sum, average, min, and max numbers");
