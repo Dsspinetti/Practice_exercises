@@ -23,6 +23,7 @@ public class PracticeExercisesApplication {
             System.out.println("4. Sum, Avg, Min, Max");
             System.out.println("5. Dice Game");
             System.out.println("6. Alphabetical list");
+            System.out.println("7. Factorial");
             System.out.println("9. Exit");
             userProgramNumber = scnr.nextInt();
             switch (userProgramNumber) {
@@ -44,6 +45,9 @@ public class PracticeExercisesApplication {
                 case 6:
                     alphabeticalList();
                     break;
+                case 7:
+                    factorial();
+                    break;
                 case 9:
                     keepPlaying = false;
                     break;
@@ -52,6 +56,23 @@ public class PracticeExercisesApplication {
 
         }
         System.out.println("Thank you for playing!");
+    }
+
+    private static void factorial() {
+        System.out.println("Input a number and I will return the factorial of that number");
+        Scanner scnr = new Scanner(System.in);
+        int factNum = scnr.nextInt();
+        int storedNum = factNum;
+        int storedNum2 = factNum;
+        int[] numbers = new int[factNum];
+        for (int i = 0; i < factNum; i++) {
+            numbers[i] = storedNum;
+            storedNum--;
+        }
+        for (int i = 1; i < numbers.length; i++) {
+            storedNum2 = storedNum2 * numbers[i];
+        }
+        System.out.println(storedNum2);
     }
 
     private static void alphabeticalList() {
@@ -171,6 +192,4 @@ public class PracticeExercisesApplication {
         int age = scnr.nextInt();
         System.out.println("Hello " + name + " you will be " + (age + 10) + " in 10 years.");
     }
-
-
 }
