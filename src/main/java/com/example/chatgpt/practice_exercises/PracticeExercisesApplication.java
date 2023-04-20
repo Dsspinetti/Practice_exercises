@@ -1,7 +1,6 @@
 package com.example.chatgpt.practice_exercises;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.*;
 
@@ -28,33 +27,15 @@ public class PracticeExercisesApplication {
             System.out.println("9. Exit");
             userProgramNumber = scnr.nextInt();
             switch (userProgramNumber) {
-                case 1:
-                    ageInTenYears();
-                    break;
-                case 2:
-                    palindrome();
-                    break;
-                case 3:
-                    fibonacci();
-                    break;
-                case 4:
-                    sumAvgMinMax();
-                    break;
-                case 5:
-                    diceGame();
-                    break;
-                case 6:
-                    alphabeticalList();
-                    break;
-                case 7:
-                    factorial();
-                    break;
-                case 8:
-                    calculator();
-                    break;
-                case 9:
-                    keepPlaying = false;
-                    break;
+                case 1 -> ageInTenYears();
+                case 2 -> palindrome();
+                case 3 -> fibonacci();
+                case 4 -> sumAvgMinMax();
+                case 5 -> diceGame();
+                case 6 -> alphabeticalList();
+                case 7 -> factorial();
+                case 8 -> calculator();
+                case 9 -> keepPlaying = false;
             }
 
 
@@ -160,13 +141,13 @@ public class PracticeExercisesApplication {
         int sumTotal = 0;
         int min = numbers[0];
         int max = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            sumTotal = numbers[i] + sumTotal;
-            if (numbers[i] < min) {
-                min = numbers[i];
+        for (int number : numbers) {
+            sumTotal = number + sumTotal;
+            if (number < min) {
+                min = number;
             }
-            if (numbers[i] > max) {
-                max = numbers[i];
+            if (number > max) {
+                max = number;
             }
         }
         System.out.println("Sum: " + sumTotal);
@@ -181,7 +162,7 @@ public class PracticeExercisesApplication {
         int userNum = scnr.nextInt();
         int a = 0, b = 1;
         System.out.print(a + ", " + b);
-        int printedNum = 0;
+        int printedNum;
         for (int i = 2; i < userNum; i++) {
             printedNum = a + b;
             System.out.print(", " + printedNum);
@@ -196,14 +177,14 @@ public class PracticeExercisesApplication {
         System.out.println("Input a word with no spaces and I will check if it is a palindrome");
         Scanner scnr = new Scanner(System.in);
         String userInput = scnr.next();
-        String reverseWord = "";
+        StringBuilder reverseWord = new StringBuilder();
 
         for (int i = (userInput.length() - 1); i >= 0; i--) {
 
             char c = userInput.charAt(i);
-            reverseWord = reverseWord + c;
+            reverseWord.append(c);
         }
-        if (reverseWord.equals(userInput)) {
+        if (reverseWord.toString().equals(userInput)) {
             System.out.println(userInput + " is a palindrome! :)");
         } else {
             System.out.println(userInput + " is not a palindrome. :(");
