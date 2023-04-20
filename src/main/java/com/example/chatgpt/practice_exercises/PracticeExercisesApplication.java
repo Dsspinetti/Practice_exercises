@@ -3,10 +3,8 @@ package com.example.chatgpt.practice_exercises;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
-@SpringBootApplication
 public class PracticeExercisesApplication {
 
     public static void main(String[] args) {
@@ -24,6 +22,7 @@ public class PracticeExercisesApplication {
             System.out.println("3. Fibonacci");
             System.out.println("4. Sum, Avg, Min, Max");
             System.out.println("5. Dice Game");
+            System.out.println("6. Alphabetical list");
             System.out.println("9. Exit");
             userProgramNumber = scnr.nextInt();
             switch (userProgramNumber) {
@@ -42,6 +41,9 @@ public class PracticeExercisesApplication {
                 case 5:
                     diceGame();
                     break;
+                case 6:
+                    alphabeticalList();
+                    break;
                 case 9:
                     keepPlaying = false;
                     break;
@@ -50,6 +52,23 @@ public class PracticeExercisesApplication {
 
         }
         System.out.println("Thank you for playing!");
+    }
+
+    private static void alphabeticalList() {
+        System.out.println("Enter a list of words and I will return them in alphabetical order");
+        System.out.println("First, give me the amount of words you will input:");
+        Scanner scnr = new Scanner(System.in);
+        int length = scnr.nextInt();
+        List<String> words = new ArrayList<>();
+        System.out.println("Now the list separating each word with a space:");
+
+        for (int i = 0; i < (length); i++) {
+            words.add(scnr.next());
+        }
+        Collections.sort(words);
+        System.out.println(words);
+
+
     }
 
     private static void diceGame() {
